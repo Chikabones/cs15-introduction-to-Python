@@ -1,0 +1,31 @@
+products = {
+    "Яблоки": 50,
+    "Бананы": 30,
+    "Хлеб": 25,
+    "Молоко": 40
+}
+
+def show_products():
+    for product, price in products.items():
+        print(f"{product}: {price} рублей")
+
+def buy_product():
+    product = input("Какой товар хотите купить? ").capitalize()
+    if product in products:
+        quantity = int(input(f"Сколько {product} хотите купить? "))
+        total = products[product] * quantity
+        print(f"Вы купили {quantity} {product}(ов) на сумму {total} рублей.")
+    else:
+        print("Такого товара нет.")
+
+def main():
+    while True:
+        print("\nМагазин открыт!")
+        show_products()
+        buy_product()
+        continue_shopping = input("\nПродолжить покупки? (да/нет): ").lower()
+        if continue_shopping != "да":
+            print("До свидания!")
+            break
+
+main()
